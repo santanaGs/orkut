@@ -34,3 +34,17 @@ export const FormS = styled.form`
 	gap: 1.5rem;
 	width: 100%;
 `
+
+export const CheckDiv = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+gap: .73rem;
+
+`
+
+export const LabelS = styled.label`
+color: #868686;
+font-size: 0.75rem;
+font-weight: 400;
+`
