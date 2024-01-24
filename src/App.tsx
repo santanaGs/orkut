@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 function App() {
   return (
-    <Router>
-      <Routes>
+    <Router >
+      <Routes >
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Home />} />
       </Routes>
     </Router>
   )

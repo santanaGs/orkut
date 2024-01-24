@@ -18,7 +18,7 @@ export default function LoginS() {
 					<LabelS htmlFor="remember">Lembrar minha senha</LabelS>
 				</CheckDiv>
 				<Input type="submit" value={'Entrar na conta'} style={{ backgroundColor: "#ED2590", color: "white", cursor: "pointer", fontSize: "1rem" }} />
-				<Input type="submit" value={'Criar uma conta'} style={{ backgroundColor: "#EFF3F8", color: "#ED2590", cursor: "pointer", fontSize: "1rem" }} />
+				<Input type="button" value={'Criar uma conta'} style={{ backgroundColor: "#EFF3F8", color: "#ED2590", cursor: "pointer", fontSize: "1rem" }} />
 			</FormS>
 		</Container>
 	)
