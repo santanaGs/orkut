@@ -6,6 +6,7 @@ export const Container = styled.div`
 	background: #FFF;
 	margin: 0 auto;
 	padding: 3rem;
+	height: 100%;
 `
 
 export const FormS = styled.form`
@@ -42,9 +43,9 @@ export const TwoInputsDiv = styled.div`
 `
 
 export const Label = styled.p`
-color: #868686;
-font-size: 0.75rem;
-font-weight: 400;
+	color: #868686;
+	font-size: 0.75rem;
+	font-weight: 400;
 `
 
 export const DivS = styled.div`
@@ -53,4 +54,19 @@ export const DivS = styled.div`
 	align-items: flex-start;
 	width: 100%;
 	gap: .5rem;
+`
+
+export const InputDiv = styled.div`
+	display: flex;
+	flex-direction:column;
+	width: 100%;
+	align-items: flex-start;
+`
+
+export const Error = styled.span`
+	color: #ED2590;
+	font-size: 0.75rem;
+	font-weight: 400;
+	text-align: left;
+	margin-top: .5rem;
 `
