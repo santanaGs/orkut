@@ -4,6 +4,7 @@ import { Container, DivS, Error, FormS, InputDiv, InputS, Label, Select, TwoInpu
 import { Circle, Header, Orkut } from '../../../Login/components/Login/styles';
 import circle from './assets/svgs/ps_orkut.svg'
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function Forms() {
 	const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -13,10 +14,21 @@ export default function Forms() {
 	};
 
 	const upload = async () => {
-		console.log('aaa')
+		const headers = {
+			'headers': {
+				'Content-Type': 'multipart/form-data'
+			}
+		}
 
 		const data = new FormData();
 		data.append('image', image);
+
+		await axios.post('http://localhost:3000/register', data, headers).then((sucess) => {
+			console.log('SUCESSO', sucess)
+		}).catch((erro) => {
+			console.log('ERRO', erro)
+		})
+
 	}
 
 	console.log(watch("example"))
@@ -70,6 +82,7 @@ export default function Forms() {
 						onChange={(e) => {
 							const file = e.target.files[0];
 							setImage(file)
+							console.log(file)
 						}}
 						type='file'
 					/>
