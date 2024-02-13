@@ -5,15 +5,22 @@ import { Circle, Header, Orkut } from '../../../Login/components/Login/styles';
 import circle from './assets/svgs/ps_orkut.svg'
 import { useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 export default function Forms() {
 	const { register, handleSubmit, watch, formState: { errors } } = useForm();
 	const [image, setImage] = useState('');
-	const onSubmit = async (data: any, e) => {
-		upload();
+	const onSubmit = async (data: any) => {
+		upload(data);
 	};
 
-	const upload = async () => {
+	// Navigate
+	const navigate = useNavigate();
+
+	const upload = async (dataInfos: any) => {
+
+		// console.log(dataInfos)
 		const headers = {
 			'headers': {
 				'Content-Type': 'multipart/form-data'
@@ -22,16 +29,37 @@ export default function Forms() {
 
 		const data = new FormData();
 		data.append('image', image);
+		data.append('email', dataInfos.email);
+		data.append('name', dataInfos.name);
+		data.append('lastname', dataInfos.lastname);
+		data.append('password', dataInfos.password);
+		data.append('genero', dataInfos.genero)
+		data.append('dataNascimento', dataInfos.date)
 
 		await axios.post('http://localhost:3000/register', data, headers).then((sucess) => {
-			console.log('SUCESSO', sucess)
+			showSwal();
 		}).catch((erro) => {
 			console.log('ERRO', erro)
 		})
 
 	}
 
-	console.log(watch("example"))
+
+	// sweet modal
+	const showSwal = () => {
+		Swal.fire({
+			title: "Opa, registrado com sucesso!",
+			text: `Seu cadastro foi realizado com sucesso.`,
+			icon: "success",
+			customClass: {
+				confirmButton: 'confirmButton',
+			},
+			preConfirm: () => {
+				navigate('/')
+			}
+		});
+	}
+
 	// Rengering
 	return (
 		<Container>
@@ -67,7 +95,7 @@ export default function Forms() {
 				</DivS>
 				<DivS>
 					<Label>Gênero</Label>
-					<Select name="select">
+					<Select {...register("genero")} name="select">
 						<option value="" selected>Selecionar</option>
 						<option value="masculino" >Masculino</option>
 						<option value="feminino" >Feminino</option>

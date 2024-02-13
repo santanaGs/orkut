@@ -4,3 +4,9 @@
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
+
+.confirmButton {
+  background-color: #ED2590 !important;
+  width: 100% !important;
+  padding: 1rem 5rem;
+}
