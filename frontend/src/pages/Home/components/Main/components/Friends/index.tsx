@@ -1,4 +1,3 @@
-import CommunitiesList from "./components/CommunitiesList";
 import FriendsList from "./components/FriendsList";
 import { Container } from "./styles";
 

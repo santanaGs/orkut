@@ -9,8 +9,8 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 export default function Forms() {
-	const { register, handleSubmit, watch, formState: { errors } } = useForm();
-	const [image, setImage] = useState('');
+	const { register, handleSubmit, formState: { errors } } = useForm();
+	const [image, setImage] = useState<File | null>();
 	const onSubmit = async (data: any) => {
 		upload(data);
 	};
@@ -28,7 +28,9 @@ export default function Forms() {
 		}
 
 		const data = new FormData();
-		data.append('image', image);
+		if (image) {
+			data.append('image', image);
+		}
 		data.append('email', dataInfos.email);
 		data.append('name', dataInfos.name);
 		data.append('lastname', dataInfos.lastname);
@@ -38,6 +40,7 @@ export default function Forms() {
 
 		await axios.post('http://localhost:3000/register', data, headers).then((sucess) => {
 			showSwal();
+			console.log(sucess);
 		}).catch((erro) => {
 			console.log('ERRO', erro)
 		})
@@ -108,6 +111,7 @@ export default function Forms() {
 						id='fileInput'
 						{...register("file", { required: true })}
 						onChange={(e) => {
+							if (!e.target.files) return;
 							const file = e.target.files[0];
 							setImage(file)
 							console.log(file)

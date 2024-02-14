@@ -6,6 +6,7 @@ export const HeaderS = styled.div`
 	justify-content: center;
 	align-items: center;
 	display: flex;
+
 `
 
 export const Logo = styled.img`
@@ -18,12 +19,21 @@ export const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	@media screen and (max-width: 768px) {
+		width: 100%;
+		justify-content: space-evenly
+	}
 `
 
 export const NavBar = styled.nav`
 	display: flex;
 	align-items: center;
 	gap: 2.5rem;
+
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
 `
 
 export const NavItens = styled.a`

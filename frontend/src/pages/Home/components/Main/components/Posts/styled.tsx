@@ -5,6 +5,12 @@ width: 37rem;
 border-radius: 1rem;
 background: #FFF;
 padding: 2rem 1.5rem;
+
+@media screen and (max-width: 768px) {
+		width: 90%;
+		margin: 0 auto;
+		margin-top: 2rem;
+	}
 `
 
 export const Hello = styled.h1`

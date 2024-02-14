@@ -12,4 +12,10 @@ export const Container = styled.div`
 		padding: 9rem 0rem;
 		display: flex;
 		justify-content: space-between;
+
+
+		@media screen and (max-width: 768px) {
+		width: 100%;
+	}
+
 `

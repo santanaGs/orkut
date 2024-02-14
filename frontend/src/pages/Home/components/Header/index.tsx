@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-	let name: string = sessionStorage.getItem("name");
+	const name: string | null = sessionStorage.getItem("name");
 	const [logout, setLogout] = useState<boolean>(false)
 	const navigate = useNavigate();
 

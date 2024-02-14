@@ -8,6 +8,11 @@ export const Container = styled.div`
 	gap: 1.5rem;
 	border-radius: 1rem;
 	background: #FFF;
+
+	@media screen and (max-width: 768px) {
+		width: 90%;
+		margin: 0 auto;
+	}
 `
 
 export const ProfileImageDiv = styled.div`
@@ -48,6 +53,11 @@ export const Edit = styled.div`
 	border-radius: 1rem;
 	background: #FDFEFF;
 	padding: 1rem 4.8125rem;
+
+	@media screen and (max-width: 768px) {
+		width: 90%;
+		margin: 0 auto;
+	}
 `
 
 export const ProfileDivS = styled.div`

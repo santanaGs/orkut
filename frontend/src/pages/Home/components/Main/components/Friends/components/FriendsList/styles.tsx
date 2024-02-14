@@ -5,6 +5,11 @@ export const Container = styled.div`
 	border-radius: 1rem;
 	background: #FFF;
 	padding: 1.5rem;
+
+		@media screen and (max-width: 768px) {
+		width: 90%;
+		margin: 0 auto;
+	}
 `
 
 export const ListNameDiv = styled.div`

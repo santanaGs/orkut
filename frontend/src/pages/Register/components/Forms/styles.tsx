@@ -7,6 +7,11 @@ export const Container = styled.div`
 	margin: 0 auto;
 	padding: 3rem;
 	height: 100%;
+
+	@media screen and (max-width: 768px) {
+		width: 90%;
+		padding: 1rem;
+	}
 `
 
 export const FormS = styled.form`

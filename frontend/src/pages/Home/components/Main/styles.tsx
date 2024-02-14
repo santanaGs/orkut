@@ -11,4 +11,9 @@ export const Container = styled.div`
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
+
+		@media screen and (max-width: 768px) {
+		flex-direction: column;
+		width: 100%;
+	}
 `

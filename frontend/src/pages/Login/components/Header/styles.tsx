@@ -7,6 +7,7 @@ export const DivS = styled.div`
 	background-color: #fff;
 	display: flex;
 	align-items: center;
+
 `
 
 export const Container = styled.div`
@@ -15,6 +16,14 @@ export const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	@media screen and (max-width: 768px) {
+		width: 100%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+	}
 `
 
 export const Logo = styled.img`

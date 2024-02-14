@@ -5,7 +5,7 @@ import { Arrow, Container, DataContainer, Hello, StatusDiv, StatusText } from ".
 // fake data
 interface DataProps {
 	label: string;
-	data: any[];
+	data: any[] | null | string;
 }
 
 const data: DataProps[] = [
@@ -68,7 +68,7 @@ const data: DataProps[] = [
 ]
 
 export default function Posts() {
-	let name: string = sessionStorage.getItem("name");
+	const name: string | null = sessionStorage.getItem("name");
 	return (
 		<Container>
 			<Hello>Boa tarde, {name}</Hello>

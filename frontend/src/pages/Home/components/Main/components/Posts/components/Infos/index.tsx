@@ -11,7 +11,7 @@ export default function Infos({ label, data }: InfosProps) {
 		<Container>
 			<Label>{label}:  </Label>
 			{typeof (data) === 'object' ? (
-				data.map((item: string, index: number) => {
+				data.map((item: string | any, index: number) => {
 					return (
 						<Data key={index} more={label === 'Músicas' || label === 'Filmes'}>{item.name}</Data>
 					)

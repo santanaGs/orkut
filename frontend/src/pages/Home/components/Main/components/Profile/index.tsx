@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Profile() {
-	let userId: number = sessionStorage.getItem("userId");
+	const userId: string | null = sessionStorage.getItem("userId");
 
 	const [image, setImage] = useState('');
 	const [name, setName] = useState('');

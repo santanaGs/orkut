@@ -19,9 +19,17 @@ export const Input = styled.input`
 		font-weight: 400;
 		line-height: 1.5rem; /* 150% */
 	}
+
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
 `
 export const SearchIcon = styled.img`
 	position: absolute;
 	left: 3%;
 	top: 15%;
+
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
 `

@@ -14,9 +14,9 @@ export default function FriendsList({ title, list }: ListProps) {
 				<ListMore>Ver todos</ListMore>
 			</ListNameDiv>
 			<ListGrid>
-				{list.map((item: string, index: number) => {
+				{list.map((item: any | string | null, index: number) => {
 					return (
-						<Item name={item.name} image={item.image} communities={item.communities} key={index} />
+						<Item name={item?.name} image={item?.image} communities={item?.communities} key={index} />
 					)
 				})}
 			</ListGrid>
