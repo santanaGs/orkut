@@ -29,6 +29,9 @@ var transporter = nodemailer.createTransport({
   }
 });
 
+// JWT TOKEN
+const jwt = require('jsonwebtoken') // gerar baren token
+
 function sendMail(mail:string, name:string){
 	transporter.sendMail({
 		from: '"SantanaGs 🖥️" <santanags@gmail.com>',
@@ -52,6 +55,7 @@ function sendMail(mail:string, name:string){
 app.use(express.json())
 app.use(cors())
 
+// register
 app.post('/register',middlewaresUpload.single('image') ,async (req:any, res:any, next:any) => {
 	const dataUser = req.body
 
@@ -91,6 +95,61 @@ dataUser.password = await bcrypt.hash(dataUser.password, 8);
 			err,
 		})
 	})
+
+})
+
+// login
+app.post('/login', async (req:any, res:any) => {
+  const user = await prisma.user.findUnique({
+		where: {
+			email: req.body.email,
+		},
+	})
+
+	console.log('USER', user)
+
+  if(user === null){
+    return res.status(400).json({
+      erro: true,
+      mensagem: "Usuário não localizado em nossa base de dados, realize o cadastro.",
+      status: 400,
+    })
+  }
+
+  if(!(await bcrypt.compare(req.body.password, user.password))){
+    return res.status(400).json({
+      erro: true,
+      mensagem: "Email ou senha inválido! Senha",
+      status: 400,
+    })
+  }
+
+  var token = jwt.sign({id: 1}, "NxJt@9!2L6VT2R@j", {
+    expiresIn: '1d'
+  })
+
+  return res.status(200).json({
+    erro: false,
+    mensagem: 'login',
+    token,
+		user_id: user.id
+  })
+})
+
+// profile
+app.post('/profile', async (req:any, res:any) => {
+	const user = await prisma.user.findUnique({
+		where: {
+			id: parseInt(req.query.id),
+		},
+	})
+
+	return res.status(200).json({
+    erro: false,
+    mensagem: 'sucess',
+		name: user?.name,
+		image: user?.image
+  })
 
 })
 

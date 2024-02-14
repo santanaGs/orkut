@@ -68,9 +68,10 @@ const data: DataProps[] = [
 ]
 
 export default function Posts() {
+	let name: string = sessionStorage.getItem("name");
 	return (
 		<Container>
-			<Hello>Boa tarde, Santana</Hello>
+			<Hello>Boa tarde, {name}</Hello>
 			<StatusDiv>
 				<Arrow></Arrow>
 				<StatusText>Programar sem café é igual porta sem poesia.</StatusText>

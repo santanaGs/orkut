@@ -43,6 +43,7 @@ export const UserDiv = styled.div`
 	display: flex;
 	align-items: center;
 	gap: .8rem;
+	position: relative;
 `
 
 export const ProfileImage = styled.img`
@@ -59,3 +60,37 @@ export const ProfileName = styled.p`
 `
 
 export const Arrow = styled.img``
+
+export const ArrowButton = styled.button`
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+`
+
+export const Logout = styled.button`
+	width: 100%;
+	height: 50px;
+	background-color: #ffffff;
+	position: absolute;
+	top: 120%;
+	border-radius: 10px;
+	border: 2px solid #ED2590;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: .3s;
+	color: #ED2590;
+
+
+	&:hover{
+		background-color: #ED2590;
+		border-color: #fff;
+		color: #fff;
+	}
+`
+
+export const LogoutText = styled.p`
+	font-size: 1rem;
+	font-weight: bold;
+`
